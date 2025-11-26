@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Family Secret Santa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+
+    <style>
+        body {
+            background: #f8fafc;
+        }
+
+        .hidden-admin {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            color: #64748b;
+        }
+    </style>
+</head>
+
+<body class="flex items-center justify-center min-h-screen">
+
+    <div class="bg-white p-8 rounded-xl shadow-lg max-w-md w-full">
+        <h1 class="text-2xl font-bold text-center mb-3">Family Secret Santa 🎁</h1>
+        <p class="text-center text-gray-600 mb-6">
+            Choose your name to see who you’re gifting.
+        </p>
+
+        <!-- Normal Mode -->
+        <div id="reveal-section">
+            <select id="name-select" class="w-full border rounded p-2 mb-3">
+                <option value="">-- Select Your Name --</option>
+            </select>
+
+            <button id="reveal-btn" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded">
+                Reveal My Person
+            </button>
+
+            <p id="result" class="text-green-600 font-semibold text-center mt-4 hidden"></p>
+            <p id="error" class="text-red-600 text-center mt-2 hidden"></p>
+        </div>
+
+        <!-- Admin Login -->
+        <div id="admin-login" class="mt-6 hidden">
+            <input id="admin-pass" type="password" placeholder="Enter admin password"
+                class="border rounded p-2 w-full mb-2">
+            <button id="admin-enter" class="w-full bg-gray-700 text-white py-2 rounded">
+                Enter Admin Mode
+            </button>
+            <p id="admin-login-error" class="text-red-600 text-center mt-2 hidden"></p>
+        </div>
+
+        <!-- Admin Mode -->
+        <div id="admin-panel" class="hidden mt-6">
+            <h2 class="text-xl font-bold mb-3">Admin Mode</h2>
+
+            <p class="text-sm text-gray-700">Participant list:</p>
+            <textarea id="name-list" rows="6" class="w-full border rounded p-2 mb-3"></textarea>
+
+            <button id="generate-btn" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded">
+                Generate Assignments & Download JSON
+            </button>
+
+            <p class="mt-4 text-sm text-gray-600">
+                After downloading, upload <strong>assignments.json</strong> into your GitHub repo.
+            </p>
+        </div>
+
+        <div id="admin-toggle" class="hidden-admin text-center">
+            Admin?
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
