@@ -1,6 +1,3 @@
-/**********************************************
- * LOAD CODES + ASSIGNMENTS
- **********************************************/
 let codes = {};
 let assignments = {};
 
@@ -18,17 +15,11 @@ async function loadData() {
 
 loadData();
 
-/**********************************************
- * DOM ELEMENTS
- **********************************************/
 const codeInput = document.getElementById("code-input");
 const revealBtn = document.getElementById("reveal-btn");
 const errorEl = document.getElementById("error");
 const resultEl = document.getElementById("result");
 
-/**********************************************
- * REVEAL SECRET SANTA MATCH
- **********************************************/
 revealBtn.addEventListener("click", () => {
   errorEl.classList.add("hidden");
   resultEl.classList.add("hidden");
@@ -57,13 +48,10 @@ revealBtn.addEventListener("click", () => {
   resultEl.textContent = `You are Secret Santa for: ${giftee}`;
   resultEl.classList.remove("hidden");
 
-  // Remove code in-memory (prevents reuse in same device session)
+  // Remove code locally (prevents reuse during the same session)
   delete codes[code];
 });
 
-/**********************************************
- * HELPERS
- **********************************************/
 function showError(msg) {
   errorEl.textContent = msg;
   errorEl.classList.remove("hidden");
